@@ -1,0 +1,56 @@
+.hide {
+  display: none !important;
+}
+.is-collapsed {
+  display: none !important;
+}
+#noteApp {
+  font-family: Helvetica;
+  font-weight: 200;
+  font-size: 14px;
+}
+#noteApp .toolbar {
+  display: flex;
+  line-height: 2em;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 35px;
+  text-decoration: underline;
+}
+#noteApp .editor-area {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  flex-direction: column;
+}
+#noteApp .editor-area textarea {
+  color: #000;
+  height: 150px;
+  width: 200px;
+  box-shadow: 10px 10px 5px #888888;
+}
+#noteApp .editor-area label + * {
+  margin-bottom: 10px;
+}
+#noteApp .editor-area button {
+  padding: 5px;
+}
+#noteApp .notes-container .notes {
+  list-style: none;
+  padding: 0;
+}
+#noteApp .notes-container .notes .note {
+  display: flex;
+  color: #fff;
+  background: #f00;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 10px;
+  word-break: break-word;
+}
+#noteApp .notes-container .notes .note button {
+  border-radius: 3px;
+  border: 0;
+  background: white;
+  margin-bottom: 5px;
+}

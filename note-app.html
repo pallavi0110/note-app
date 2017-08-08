@@ -1,0 +1,61 @@
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+     <meta charset="utf-8">
+     <title>Note App</title>
+     <link rel="stylesheet" href="note-app.css">
+  </head>
+  <body>
+
+    
+<div id="noteApp">
+
+  <div class="toolbar">
+
+    <span v-on:click=" collapsed = !collapsed" class="add-note">+Add Note</span>
+
+  </div>
+
+  <div v-bind:class="{'is-collapsed' : collapsed}" class="editor-area">
+
+    <label>Note: </label>
+
+    <textarea ref="textareaRef" type="text" v-model="noteText" class="note-text"></textarea>
+
+    <label>Type: </label>
+
+    <select v-model="selected" class="color">
+
+      <option v-for="color in colors" v-bind:value="color.colorValue">{{color.text}}</option>
+    </select>
+    <div>
+      <button @click="(noteText ? createNote() : alert('Please enter some text!!'))" type="button" class="create-btn">Save</button>
+      <button @click="cancelNote()" type="button" class="cancel-btn">Cancel</button>
+
+    </div>
+  </div>
+  <div class="notes-container">
+    <ul class="notes">
+      <li  v-bind:style="{backgroundColor: '#'+ item.color}" v-for="(item,index) in notes" class="note-template note">
+          {{item.text}}
+          <div>
+            <button @click="editNote(index)" type="button" class="edit-btn">
+              📝
+            </button>
+            <button @click="deleteNote(index)" class="delete-btn" type="button">
+              ❌
+            </button>
+
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script> 
+    <script src="note-app.js"></script> 
+  
+  </body>
+  </html>
+
